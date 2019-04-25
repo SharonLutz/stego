@@ -274,7 +274,7 @@ pruneGenotypes <-  function(gt, blocksize=1){
 #' calculateSMatrix(toyGenotypes)
 #'
 #' @export
-calculateSMatrix <- function(gt, sampleNames=sampleNames, phased=T, minVariants=5, scaleBySampleAF=F, outputDir=".", saveDir=NA, saveFile=NA, simFun=NULL, verbose=F){
+calculateSMatrix <- function(gt, Djac=FALSE, sampleNames=sampleNames, phased=T, minVariants=5, scaleBySampleAF=F, outputDir=".", saveDir=NA, saveFile=NA, simFun=NULL, verbose=F){
     
     require(data.table)
     numAlleles <- ifelse(phased, ncol(gt), 2*ncol(gt))
@@ -320,8 +320,11 @@ calculateSMatrix <- function(gt, sampleNames=sampleNames, phased=T, minVariants=
     pkweightsMean <- mean(((sumFilteredVariants-2)/numAlleles)*weights)
     kinships <- seq(0,.25,.001)
     kinshipExpectation <- 1+kinships*(pkweightsMean-1)
-    
-    s_matrix_numerator <- t(gt*weights)%*%gt
+     if(Djac){
+    s_matrix_numerator <- t(gt) %*% gt
+  }else{
+    s_matrix_numerator <- t(gt * weights) %*% gt
+}
     s_matrix_denominator <- numFilteredVariants
     s_matrix_hap <- s_matrix_numerator/s_matrix_denominator
     if (scaleBySampleAF){
