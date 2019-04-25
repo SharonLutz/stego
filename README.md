@@ -15,7 +15,7 @@ install.packages("devtools") #The devtools package must be installed first
 devtools::install_github("SharonLutz/stego")
 ```
 
-For more information, 
+For more information
 ```
 library(stego)
 ?calculateSMatrix
