@@ -4,7 +4,7 @@
 \alias{calculateSMatrix}
 \title{Calculate the similarity matrix}
 \usage{
-calculateSMatrix(gt, sampleNames = sampleNames, phased = T,
+calculateSMatrix(gt, Djac=FALSE, sampleNames = sampleNames, phased = T,
   minVariants = 5, scaleBySampleAF = F, outputDir = ".", saveDir = NA,
   saveFile = NA, simFun = NULL, verbose = F)
 }
