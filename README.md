@@ -1,4 +1,4 @@
-## stego
+## dschlauch/stego
 From  dschlauch/stego, implementation of the stego algorithm - Similarity Test for Estimating Genetic Outliers.
 
 
