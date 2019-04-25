@@ -1,5 +1,5 @@
 ## dschlauch/stego
-From  dschlauch/stego, implementation of the stego algorithm - Similarity Test for Estimating Genetic Outliers.
+Forked from  dschlauch/stego, implementation of the stego algorithm - Similarity Test for Estimating Genetic Outliers.
 
 
 The only difference from the original package is that the calculateSMatrix function now has input Djac. If Djac=FALSE, then no 
